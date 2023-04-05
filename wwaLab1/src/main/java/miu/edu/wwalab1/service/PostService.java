@@ -31,8 +31,13 @@ public class PostService implements PostServiceInterface{
     public void deleteById(Long id) {
         postRepository.deleteById(id);
     }
-    public void update(Post post) {
-        postRepository.save(post);
+    public void update(Post post, Long id) {
+        Post p=postRepository.findById(id).get();
+        p.setAuthor(post.getAuthor());
+        p.setContent(post.getContent());
+        p.setTitle(post.getTitle());
+
+        postRepository.save(p);
     }
 
 }
