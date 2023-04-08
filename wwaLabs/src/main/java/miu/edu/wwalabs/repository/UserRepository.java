@@ -10,8 +10,11 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-//    @Query("select u from User u where u.posts.size> :n")
+//    @Query("select u from User u where u.posts>:n") // query(jdbc)
 //    public  List<User> findUserByPostsGreaterThan(@Param("n") int n);
-@Query("SELECT u FROM User u JOIN u.posts p GROUP BY u HAVING COUNT(p) > :n")
-List<User> findByNumberOfPostsGreaterThan(@Param("n") int n);
+//@Query("SELECT u FROM User u JOIN u.posts p GROUP BY u HAVING COUNT(p.id) > :n") //?
+//List<User> getUserByPostsGreaterThan(@Param("n") int n);// method query
+@Query("SELECT u FROM User u JOIN FETCH u.posts p GROUP BY u.id HAVING COUNT(p.id) > :numPosts")
+List<User> findUsersWithMoreThanNPosts(@Param("numPosts") int numPosts);
+
 }

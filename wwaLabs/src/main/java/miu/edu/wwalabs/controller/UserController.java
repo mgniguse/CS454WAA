@@ -42,6 +42,10 @@ public class UserController {
         userService.deleteByUser(user);
         userService.delete(user);
     }
+    @GetMapping("/posts/{n}")
+    public List<User> findUserByPostsGreaterThan(@PathVariable int n) {
+        return userService.findByNumberOfPostsGreaterThan(n);
+    }
 
 
 

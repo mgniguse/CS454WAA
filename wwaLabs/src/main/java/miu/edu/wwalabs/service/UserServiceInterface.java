@@ -11,7 +11,7 @@ List<User> getAllUsers();
  User getUserById(Long id);
  void createUser(User user);
 List <Post> getPostUser(Long id);
-List<User> findUserByPostsGreaterThan(@Param("n") int n);
+List<User> findUserByPostsGreaterThan(int n);
 
 
  void deleteByUser(User user);

@@ -44,13 +44,10 @@ public class UserServiceImpl implements UserServiceInterface {
 
     @Override
     public List<User> findUserByPostsGreaterThan(int n) {
-        return null;
+//        return userRepository.findUserByPostsGreaterThan(n);
+        return userRepository.findUsersWithMoreThanNPosts(n);
     }
 
-    @Override
-    public List<User> findByNumberOfPostsGreaterThan(int n) {
-        return userRepository.findByNumberOfPostsGreaterThan(n);
-    }
 
     @Override
     public void deleteByUser(User user) {
@@ -65,6 +62,11 @@ public class UserServiceImpl implements UserServiceInterface {
     @Override
     public void delete(User user) {
 
+    }
+
+    @Override
+    public List<User> findByNumberOfPostsGreaterThan(int n) {
+        return null;
     }
 
 //    @Override

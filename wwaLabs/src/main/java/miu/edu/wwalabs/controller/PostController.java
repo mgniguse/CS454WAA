@@ -46,8 +46,8 @@ public class PostController {
         post.getComments().add(comment);
         postService.save(post);
     }
-    @GetMapping("/search")
-    public List<Post> searchPostsByTitle(@RequestParam String title) {
+    @GetMapping("/search/{title}")
+    public List<Post> searchPostsByTitle(@PathVariable ("title") String title) {
         return postService.findByTitleContaining(title);
     }
 
