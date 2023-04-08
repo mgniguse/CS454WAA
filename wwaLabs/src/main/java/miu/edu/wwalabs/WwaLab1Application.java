@@ -1,4 +1,4 @@
-package miu.edu.wwalab1;
+package miu.edu.wwalabs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

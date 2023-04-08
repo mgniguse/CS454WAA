@@ -1,8 +1,8 @@
-package miu.edu.wwalab1.controller;
+package miu.edu.wwalabs.controller;
 
-import miu.edu.wwalab1.model.Post;
-import miu.edu.wwalab1.model.User;
-import miu.edu.wwalab1.service.UserServiceInterface;
+import miu.edu.wwalabs.model.Post;
+import miu.edu.wwalabs.model.User;
+import miu.edu.wwalabs.service.UserServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +36,13 @@ public class UserController {
     public List<Post> getPostUser(@PathVariable Long id) {
         return userService.getPostUser(id);
     }
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable long id) {
+        User user = userService.findById(id);
+        userService.deleteByUser(user);
+        userService.delete(user);
+    }
+
 
 
 

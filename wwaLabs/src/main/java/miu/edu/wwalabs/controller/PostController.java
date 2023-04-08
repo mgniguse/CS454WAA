@@ -1,7 +1,8 @@
-package miu.edu.wwalab1.controller;
+package miu.edu.wwalabs.controller;
 
-import miu.edu.wwalab1.model.Post;
-import miu.edu.wwalab1.service.PostServiceInterface;
+import miu.edu.wwalabs.model.Comment;
+import miu.edu.wwalabs.model.Post;
+import miu.edu.wwalabs.service.PostServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,5 +40,15 @@ public class PostController {
         postService.save(post);
     }
 
+    @PostMapping("/{id}/comments")
+    public void addCommentToPost(@PathVariable Long id, @RequestBody Comment comment) {
+        Post post = (Post) postService.getCommentById(id);
+        post.getComments().add(comment);
+        postService.save(post);
+    }
+    @GetMapping("/search")
+    public List<Post> searchPostsByTitle(@RequestParam String title) {
+        return postService.findByTitleContaining(title);
+    }
 
 }

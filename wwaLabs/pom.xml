@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>miu.edu</groupId>
-    <artifactId>wwaLab1</artifactId>
+    <artifactId>wwaLabs</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>wwaLab1</name>
     <description>wwaLab1</description>

@@ -1,4 +1,4 @@
-package miu.edu.wwalab1;
+package miu.edu.wwalabs;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,7 +1,8 @@
-package miu.edu.wwalab1.model;
+package miu.edu.wwalabs.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +13,15 @@ import java.util.List;
 @Setter
 @ToString
 @Entity
-public class User {
+public class Post {
     @Id
     @GeneratedValue
     long id;
-    String name;
+    String title;
+    String content;
+    String author;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    List<Post> posts;
+    @JoinColumn(name = "post_id")
+    private List<Comment> comments = new ArrayList<>();
 
 }
