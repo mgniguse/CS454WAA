@@ -1,5 +1,6 @@
 package miu.edu.wwalabs.controller;
 
+import miu.edu.wwalabs.aspect.annotation.ExecutionTime;
 import miu.edu.wwalabs.model.Post;
 import miu.edu.wwalabs.model.User;
 import miu.edu.wwalabs.service.UserServiceInterface;
@@ -46,7 +47,11 @@ public class UserController {
     public List<User> findUserByPostsGreaterThan(@PathVariable int n) {
         return userService.findByNumberOfPostsGreaterThan(n);
     }
-
+    @ExecutionTime
+    @GetMapping("/execute/{id}")
+    public User getUserById(@PathVariable long id) {
+        return userService.findById(id);
+    }
 
 
 
